@@ -1,0 +1,37 @@
+{
+  "resolutions": [
+    {
+      "id": 1,
+      "title": "RESOLUTION NO.11, SERIES OF 2020 A RESOLUTION AMENDING THE SCOPE OF APPLICATION 0F ERC RESOLUTION NO. 21, SERIES OF 2016",
+      "month": "December",
+      "year": 2020,
+      "file_path": "/uploads/1771701497958-263041997.pdf",
+      "created_at": "2026-02-21T19:18:56.542Z"
+    },
+    {
+      "id": 2,
+      "title": "RESOLUTION NO. 7, Series of 2020, A RESOLUTION FOR THE TRANSITORY IMPLEMENTATION OF LEGAL e-PROCESSES PENDING THE ADOPTION OF THE INTERIM GUIDELINES GOVERNING ELECTRONIC APPLICATION, FILINGS, AND VIRTUAL HEARINGS BEFORE THE ENERGY REGULATORY COMMISSION",
+      "month": "August",
+      "year": 2020,
+      "file_path": "/uploads/1771701218480-231058292.pdf",
+      "created_at": "2026-02-21T19:18:59.731Z"
+    }
+  ],
+  "metadata": {
+    "total": 2,
+    "months": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ]
+  }
+}

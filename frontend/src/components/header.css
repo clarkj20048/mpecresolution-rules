@@ -1,0 +1,125 @@
+/* Header Styles - Energy News Updates */
+
+.header {
+  background-color: #2b7750;
+  padding: 1rem 2rem;
+  color: white;
+  max-width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all var(--animation-duration-normal, 0.3s) ease;
+}
+
+.header:hover {
+  background-color: #2c7c53;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  transition: transform var(--animation-duration-normal, 0.3s) ease;
+}
+
+.header h1:hover {
+  transform: scale(1.02);
+}
+
+/* Logo */
+.header-logo {
+  max-height: 50px;
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--animation-duration-normal, 0.3s) ease;
+}
+
+.header-logo:hover {
+  transform: scale(1.1);
+}
+
+/* Nav links container */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Nav links */
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all var(--animation-duration-normal, 0.3s) ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #4caf50;
+  transition: width var(--animation-duration-normal, 0.3s) ease;
+}
+
+.nav-links a:hover {
+  color: #4caf50;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Active link */
+.nav-links a.active {
+  color: #4caf50;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  .header-logo {
+    max-height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    gap: 0.75rem;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+}

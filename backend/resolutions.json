@@ -1,0 +1,19 @@
+{
+  "resolutions": [
+    {
+      "id": 1,
+      "title": "Sample Resolution Title",
+      "date": "2024-01-15",
+      "category": "Regulation",
+      "status": "Active",
+      "description": "This is a sample resolution description for demonstration purposes.",
+      "file_link": "https://example.com/documents/sample-resolution.pdf",
+      "created_at": "2024-01-15T10:30:00.000Z"
+    }
+  ],
+  "metadata": {
+    "total": 1,
+    "categories": ["Regulation", "Standards", "Guidelines", "Protocol", "Requirements", "Other"],
+    "statuses": ["Active", "Pending", "Review", "Expired"]
+  }
+}
