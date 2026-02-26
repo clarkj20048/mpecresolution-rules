@@ -8,12 +8,32 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: all var(--animation-duration-normal, 0.3s) ease;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: slideInTop 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .header:hover {
   background-color: #2c7c53;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Animated underline effect */
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(76, 175, 80, 0.5) 20%, 
+    rgba(76, 175, 80, 0.8) 50%, 
+    rgba(76, 175, 80, 0.5) 80%, 
+    transparent 100%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+  background-size: 200% 100%;
 }
 
 .header nav {
@@ -30,7 +50,7 @@
   display: flex;
   align-items: center;
   color: #ffffff;
-  transition: transform var(--animation-duration-normal, 0.3s) ease;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .header h1:hover {
@@ -42,11 +62,12 @@
   max-height: 50px;
   width: auto;
   object-fit: contain;
-  transition: transform var(--animation-duration-normal, 0.3s) ease;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .header-logo:hover {
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(2deg);
+  filter: drop-shadow(0 0 8px rgba(76, 175, 80, 0.5));
 }
 
 /* Nav links container */
@@ -63,19 +84,22 @@
   color: #ffffff;
   text-decoration: none;
   font-size: 1.1rem;
-  transition: all var(--animation-duration-normal, 0.3s) ease;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
+  padding: 0.5rem 0;
 }
 
+/* Animated underline */
 .nav-links a::after {
   content: '';
   position: absolute;
   width: 0;
   height: 2px;
-  bottom: -4px;
-  left: 0;
+  bottom: 0;
+  left: 50%;
   background-color: #4caf50;
-  transition: width var(--animation-duration-normal, 0.3s) ease;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateX(-50%);
 }
 
 .nav-links a:hover {
@@ -89,6 +113,26 @@
 /* Active link */
 .nav-links a.active {
   color: #4caf50;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* Nav link hover animation */
+.nav-links li {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.nav-links li:nth-child(1) { animation-delay: 0.1s; }
+.nav-links li:nth-child(2) { animation-delay: 0.15s; }
+.nav-links li:nth-child(3) { animation-delay: 0.2s; }
+.nav-links li:nth-child(4) { animation-delay: 0.25s; }
+.nav-links li:nth-child(5) { animation-delay: 0.3s; }
+
+.nav-links li:hover {
+  transform: translateY(-2px);
 }
 
 /* Responsive Design */
@@ -121,5 +165,41 @@
 
   .nav-links a {
     font-size: 0.9rem;
+  }
+}
+
+/* Animation Keyframes */
+
+/* Slide In From Top */
+@keyframes slideInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }

@@ -7,6 +7,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background */
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(45, 90, 61, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(61, 107, 79, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(74, 124, 92, 0.2) 0%, transparent 40%);
+  animation: aurora 15s ease infinite;
+  z-index: 0;
 }
 
 .login-content {
@@ -17,12 +35,24 @@
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  animation: contactFadeIn 0.8s ease forwards;
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.login-content:hover {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  border-color: rgba(76, 175, 80, 0.3);
 }
 
 .login-header {
   text-align: center;
   margin-bottom: 2rem;
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
 }
 
 .login-title {
@@ -55,11 +85,17 @@
   color: #ff8a80;
   text-align: center;
   font-size: 0.95rem;
+  animation: shake 0.5s ease-in-out, fadeInUp 0.5s ease-out forwards;
 }
 
 .form-group {
   margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
 }
+
+.form-group:nth-child(1) { animation-delay: 0.3s; }
+.form-group:nth-child(2) { animation-delay: 0.35s; }
 
 .form-label {
   display: block;
@@ -67,6 +103,12 @@
   font-weight: 600;
   color: #e8f5e9;
   margin-bottom: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.form-group:focus-within .form-label {
+  color: #81c784;
+  transform: translateX(5px);
 }
 
 .form-input {
@@ -78,7 +120,7 @@
   background-color: rgba(255, 255, 255, 0.08);
   border: 2px solid rgba(255, 255, 255, 0.15);
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   box-sizing: border-box;
 }
 
@@ -90,7 +132,12 @@
   outline: none;
   border-color: #4caf50;
   background-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.25);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.25), 0 4px 15px rgba(76, 175, 80, 0.3);
+  transform: translateY(-2px);
+}
+
+.form-input:hover:not(:focus) {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .form-input:disabled {
@@ -110,20 +157,45 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   margin-top: 0.5rem;
+  animation: fadeInUp 0.5s ease-out forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
 }
 
 .login-button:hover:not(:disabled) {
   background-color: #66bb6a;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(76, 175, 80, 0.4);
+}
+
+.login-button:hover:not(:disabled)::before {
+  left: 100%;
 }
 
 .login-button:active:not(:disabled) {
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 }
 
 .login-button:disabled {
@@ -135,25 +207,31 @@
 .login-options {
   margin-top: 1.5rem;
   text-align: center;
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
 }
 
 .forgot-password {
   color: #4caf50;
   text-decoration: none;
   font-size: 0.95rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .forgot-password:hover {
   color: #66bb6a;
   text-decoration: underline;
+  transform: translateX(3px);
 }
 
 /* Login Footer */
 .login-footer {
   margin-top: 2rem;
   text-align: center;
-  animation: contactFadeIn 0.8s ease forwards;
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
 }
 
 .login-footer p {
@@ -168,6 +246,59 @@
 .login-footer p::before {
   content: '🔒';
   font-size: 1rem;
+}
+
+/* Animation Keyframes */
+
+/* Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aurora Background Animation */
+@keyframes aurora {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(2%, 2%) rotate(1deg);
+  }
+  50% {
+    transform: translate(0, 4%) rotate(0deg);
+  }
+  75% {
+    transform: translate(-2%, 2%) rotate(-1deg);
+  }
+}
+
+/* Shake Animation */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
 }
 
 /* Responsive Design */
@@ -202,16 +333,5 @@
   .login-button {
     padding: 0.875rem 1.5rem;
     font-size: 1rem;
-  }
-}
-/* ✨ FADE IN ANIMATION */
-@keyframes contactFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

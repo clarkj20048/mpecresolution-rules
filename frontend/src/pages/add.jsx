@@ -4,8 +4,8 @@ import './add.css';
 function Add() {
   const [formData, setFormData] = useState({
     title: '',
-    month: '',
-    year: '',
+    date_docketed: '',
+    date_published: '',
     file: null
   });
   const [message, setMessage] = useState('');
@@ -77,8 +77,8 @@ function Add() {
         },
         body: JSON.stringify({
           title: formData.title,
-          month: formData.month,
-          year: formData.year,
+          date_docketed: formData.date_docketed,
+          date_published: formData.date_published,
           file_path: filePath
         }),
       });
@@ -89,8 +89,8 @@ function Add() {
         setMessage('Resolution submitted successfully! It will be reviewed by an admin.');
         setFormData({
           title: '',
-          month: '',
-          year: '',
+          date_docketed: '',
+          date_published: '',
           file: null
         });
         // Reset file input
@@ -140,47 +140,41 @@ function Add() {
 
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="month" className="form-label">
-                Month *
+              <label htmlFor="date_docketed" className="form-label">
+                Date Docketed *
               </label>
-              <select
-                id="month"
-                name="month"
+              <input
+                type="text"
+                id="date_docketed"
+                name="date_docketed"
                 className="form-input"
-                value={formData.month}
+                placeholder="Enter Date"
+                value={formData.date_docketed}
                 onChange={handleChange}
                 required
-              >
-                <option value="">Select Month</option>
-                {months.map(month => (
-                  <option key={month} value={month}>{month}</option>
-                ))}
-              </select>
+              />
             </div>
 
             <div className="form-group">
-              <label htmlFor="year" className="form-label">
-                Year *
+              <label htmlFor="date_published" className="form-label">
+                Date Published *
               </label>
-              <select
-                id="year"
-                name="year"
+              <input
+                type="text"
+                id="date_published"
+                name="date_published"
                 className="form-input"
-                value={formData.year}
+                placeholder="Enter Date"
+                value={formData.date_published}
                 onChange={handleChange}
                 required
-              >
-                <option value="">Select Year</option>
-                {years.map(year => (
-                  <option key={year} value={year}>{year}</option>
-                ))}
-              </select>
+              />
             </div>
           </div>
 
           <div className="form-group">
             <label htmlFor="pdfFile" className="form-label">
-              Upload PDF File (Optional)
+              Upload PDF File*
             </label>
             <input
               type="file"

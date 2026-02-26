@@ -173,8 +173,8 @@ function AdminDB() {
                   <tr>
                     <th>ID</th>
                     <th>Title</th>
-                    <th>Published Month</th>
-                    <th>Published Year</th>
+                    <th>Date Docketed</th>
+                    <th>Date Published</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
@@ -184,8 +184,8 @@ function AdminDB() {
                       <tr key={resolution.id}>
                         <td>{resolution.id}</td>
                         <td className="title-cell">{resolution.title}</td>
-                        <td>{resolution.month}</td>
-                        <td>{resolution.year}</td>
+                        <td>{resolution.date_docketed || '-'}</td>
+                        <td>{resolution.date_published || '-'}</td>
                         <td>
                           <div className="action-buttons">
                             {resolution.file_path && (

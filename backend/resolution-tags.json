@@ -1,0 +1,387 @@
+{
+  "tags": [
+    {
+      "id": 1,
+      "file_path": "/uploads/1771900544546-983509929.pdf",
+      "title": "Resolution No. 07, Series of 2020, A Resolution for the Transitory Implementation of Legal e-Processes",
+      "keywords": ["ERC e-Filing System", "COVID-19 Digital Transition", "Virtual Court Proceedings", "Online Legal Filing", "Pandemic Response Guidelines"]
+    },
+    {
+      "id": 2,
+      "file_path": "/uploads/1771900890479-725147810.pdf",
+      "title": "Resolution No. 03, Series of 2020, A Resolution Extending the Deadline for Filing Applications",
+      "keywords": ["Filing Deadline Extension", "Online Document Submission", "Emergency Filing Procedures", "Lockdown Period Regulations", "DOC-01 Form"]
+    },
+    {
+      "id": 3,
+      "file_path": "/uploads/1771901384731-399063261.pdf",
+      "title": "Resolution No. 08, Series of 2020, A Resolution Adopting the Guidelines Governing Electronic Applications",
+      "keywords": ["ERC Online Portal", "Digital Application Process", "E-Signature Requirements", "Virtual Hearing Protocols", "iERCPower System"]
+    },
+    {
+      "id": 4,
+      "file_path": "/uploads/1771901419353-231928217.pdf",
+      "title": "Resolution No. 08, Series of 2020, Annex A - Guidelines Governing Electronic Applications",
+      "keywords": ["Electronic Application Form", "Annex A Guidelines", "Digital Signature Authenticity", "Online Hearing Schedule", "ERC Portal Registration"]
+    },
+    {
+      "id": 5,
+      "file_path": "/uploads/1771901454304-999856548.pdf",
+      "title": "Resolution No. 06, Series of 2020, A Resolution Approving the Adjustment to the Feed In Tariff (FIT)",
+      "keywords": ["FIT Rate Review", "Renewable Energy Pricing", "Solar Feed-In Tariff", "Wind Energy Rates", "FIT Cost Calculation"]
+    },
+    {
+      "id": 6,
+      "file_path": "/uploads/1771901482646-445906009.pdf",
+      "title": "Resolution No. 05, Series of 2020, Annex A – Clarifications on the Amended Net Metering Rules",
+      "keywords": ["Net Metering Amendment", "Solar Net Metering", "Bidu-Para sa Bayan", "Renewable Energy Credits", "Behind-the-Meter Generation"]
+    },
+    {
+      "id": 7,
+      "file_path": "/uploads/1771901578184-725936556.pdf",
+      "title": "Resolution No. 05, Series of 2020, A Resolution Clarifying ERC Resolution No. 6, Series of 2019",
+      "keywords": ["Net Metering Clarification", "ERC Resolution 6-2019", "Solar Rooftop Rules", "Customer Generation", "Net Metering Eligibility"]
+    },
+    {
+      "id": 8,
+      "file_path": "/uploads/1771901601200-940092710.pdf",
+      "title": "Resolution No. 09, Series of 2020, Annex A - Guidelines Governing Electronic Applications",
+      "keywords": ["Annex A ERC", "Digital Transformation", "E-Filing Guidelines", "Virtual Proceedings", "ERC IT Systems"]
+    },
+    {
+      "id": 9,
+      "file_path": "/uploads/1771901729602-38917452.pdf",
+      "title": "Resolution No. 09, Series of 2020, A Resolution Adopting the Guidelines Governing Electronic Applications",
+      "keywords": ["ERC E-Filing 2020", "Remote Application", "Electronic Submission", "Online Hearing Notice", "Digital Compliance"]
+    },
+    {
+      "id": 10,
+      "file_path": "/uploads/1771901758949-146982892.pdf",
+      "title": "Resolution No. 11, Series of 2020, A Resolution Amending the Scope of Application of ERC Resolution No. 21",
+      "keywords": ["WESM Scope Amendment", "ERC Resolution 21", "Spot Market Rules", "Electricity Trading", "Market Participant Registration"]
+    },
+    {
+      "id": 11,
+      "file_path": "/uploads/1771902745339-726197789.pdf",
+      "title": "Resolution No. 12, Series of 2020, A Resolution Prescribing the Timeline for RCOA Implementation",
+      "keywords": ["Retail Competition Open Access", "RCOA Timeline", "Contestable Customers", "Electricity Retail Market", "Supplier Switching"]
+    },
+    {
+      "id": 12,
+      "file_path": "/uploads/1771902771651-732250232.pdf",
+      "title": "Resolution No. 02, Series of 2021, A Resolution on the Recovery of Pass-Through Taxes",
+      "keywords": ["Pass-Through Cost Recovery", "Local Franchise Tax", "Business Tax Pass-On", "Utility Tax Reconciliation", "DUCIR Mechanism"]
+    },
+    {
+      "id": 13,
+      "file_path": "/uploads/1771902834889-756063910.pdf",
+      "title": "Resolution No. 03, Series of 2021, A Resolution Adopting the Revised Guidelines for Financial Capability Standards",
+      "keywords": ["GenCo Financial Standards", "Capital Adequacy", "Financial Capability Requirements", "Generation Company Criteria", "ERC Financial Review"]
+    },
+    {
+      "id": 14,
+      "file_path": "/uploads/1771902872128-456891305.pdf",
+      "title": "Resolution No. 01, Series of 2021, A Resolution Adopting the Revised Rules of Practice and Procedure",
+      "keywords": ["ERC Rules of Court", "Practice and Procedure", "Hearing Procedures", "Motion Filing", "ERC Judicial Process"]
+    },
+    {
+      "id": 15,
+      "file_path": "/uploads/1771903004487-730088003.pdf",
+      "title": "Resolution No. 01, Series of 2021, Table of Contents - Revised Rules of Practice and Procedure",
+      "keywords": ["ERC Rules TOC", "Practice Procedure Index", "ERC Manual", "Legal Framework Overview", "Procedural Guidelines"]
+    },
+    {
+      "id": 16,
+      "file_path": "/uploads/1771903027099-921649712.pdf",
+      "title": "Resolution No. 05, Series of 2021, A Resolution Setting the Installed Generating Capacity and Market Share Limitation",
+      "keywords": ["Generating Capacity Cap", "Market Share Limit", "Grid Capacity", "Power Plant Ceiling", "Luzon-Visayas-Mindanao Grid"]
+    },
+    {
+      "id": 17,
+      "file_path": "/uploads/1771903058213-389020943.pdf",
+      "title": "Resolution No. 04, Series of 2021, Rules Governing Accuracy Limits for Meters and Instrument Transformers",
+      "keywords": ["Meter Accuracy", "ANSI Standards", "Instrument Transformer Testing", "Meter Certification", "KWH Meter Standards"]
+    },
+    {
+      "id": 18,
+      "file_path": "/uploads/1771903078444-776096261.pdf",
+      "title": "Resolution No. 06, Series of 2021, A Resolution Adopting the Run-of-River (ROR) Hydro and Biomass Feed-In Tariff Rates",
+      "keywords": ["ROR Hydro FIT", "Biomass Energy Tariff", "Hydropower Rates", "Small Hydro FIT", "Renewable Energy Pricing 2021"]
+    },
+    {
+      "id": 19,
+      "file_path": "/uploads/1771903117109-771553085.pdf",
+      "title": "Resolution No. 07, Series of 2021, A Resolution Adopting Amendments to Resolution No. 04, Series of 2017",
+      "keywords": ["WESM Mitigation", "Price Cap Rules", "Market Manipulation Prevention", "Wholesale Price Limits", "ERC Market Oversight"]
+    },
+    {
+      "id": 20,
+      "file_path": "/uploads/1771903138464-936897031.pdf",
+      "title": "Resolution No. 08, Series of 2021, A Resolution Adopting the Rules for the Green Energy Option Program (GEOP)",
+      "keywords": ["Green Energy Option", "GEOP Program Rules", "Renewable Energy Choice", "Clean Energy Sourcing", "Green Pricing"]
+    },
+    {
+      "id": 21,
+      "file_path": "/uploads/1771903160061-407324464.pdf",
+      "title": "Resolution No. 09, Series of 2021, A Resolution Revoking Resolution No. 17, Series of 2014",
+      "keywords": ["RES License Revocation", "Retail Electricity Supplier", "License Reissuance", "Market Entry Rules", "Retail Competition"]
+    },
+    {
+      "id": 22,
+      "file_path": "/uploads/1771903183409-135471182.pdf",
+      "title": "Resolution No. 10, Series of 2021, A Resolution Modifying the Rules for Setting Distribution Wheeling Rates",
+      "keywords": ["Distribution Wheeling Rates", "PBR Rate Setting", "Private DU Rates", "Wheeling Charge Calculation", "DU Revenue Regulation"]
+    },
+    {
+      "id": 23,
+      "file_path": "/uploads/1771903202095-227011852.pdf",
+      "title": "Resolution No. 11, Series of 2021, A Resolution Adopting the Regulatory Asset Base (RAB) Roll Forward Handbook",
+      "keywords": ["RAB Roll Forward", "Asset Base Calculation", "DU Rate Base", "Regulatory Depreciation", "Asset Valuation"]
+    },
+    {
+      "id": 24,
+      "file_path": "/uploads/1771903220768-584575480.pdf",
+      "title": "Resolution No. 12, Series of 2021, A Resolution Clarifying the Applicable Distribution Feeder Loss Cap",
+      "keywords": ["Feeder Loss Cap", "Technical Loss Reduction", "Distribution Efficiency", "Loss Target 2022", "System Losses"]
+    },
+    {
+      "id": 25,
+      "file_path": "/uploads/1771910539926-288882363.pdf",
+      "title": "Resolution No. 02, Series of 2022, A Resolution Adopting the Green Energy Auction Reserve (GEAR) Prices",
+      "keywords": ["GEAR Auction", "Green Energy Bidding", "Solar Auction", "Wind Auction", "Renewable Energy Competitive Bidding"]
+    },
+    {
+      "id": 26,
+      "file_path": "/uploads/1771910565227-585503136.pdf",
+      "title": "Resolution No. 08, Series of 2022, A Resolution Adopting the Amended Rules for Setting Transmission Wheeling Rates",
+      "keywords": ["Transmission Wheeling Rates", "RTWR Amendment", "NGCP Rates", "Transmission Access Charge", "Grid Use of System"]
+    },
+    {
+      "id": 27,
+      "file_path": "/uploads/1771910590941-97133251.pdf",
+      "title": "Joint Resolution No. 01, Series of 2022, A Joint Resolution for Implementing Republic Act No. 11552",
+      "keywords": ["Lifeline Rate Extension", "RA 11552 Implementation", "Subsidized Electricity", "Indigent Consumers", "Cross Subsidy"]
+    },
+    {
+      "id": 28,
+      "file_path": "/uploads/1771910651858-906717586.pdf",
+      "title": "Resolution No. 12, Series of 2022, A Resolution Adopting the Suspension of the Collection of FIT-ALL",
+      "keywords": ["FIT-ALL Suspension", "Renewable Cost Freeze", "Consumer Tariff Relief", "FIT Fund Moratorium", "Green Energy Levy"]
+    },
+    {
+      "id": 29,
+      "file_path": "/uploads/1771910681347-894470820.pdf",
+      "title": "Resolution No. 14, Series of 2022, A Resolution adopting the Revised Rules Governing Automatic Cost Adjustment",
+      "keywords": ["Automatic Cost Adjustment", "True-Up Mechanisms", "DU Rate Adjustments", "Pass-Through Charges", "Cost Reconciliation"]
+    },
+    {
+      "id": 30,
+      "file_path": "/uploads/1771911737282-551155032.pdf",
+      "title": "Resolution No. 01, Series of 2023, Amendment to the ERC Rules Supplementing the Switching and Billing Process",
+      "keywords": ["Retail Switching", "Billing Process Rules", "Contestable Customer Disconnection", "Supplier Transfer", "Switching Timeline"]
+    },
+    {
+      "id": 31,
+      "file_path": "/uploads/1771911764772-459961427.pdf",
+      "title": "Resolution No. 02, Series of 2023, A Resolution Adopting the Extension of Suspension of FIT-ALL",
+      "keywords": ["FIT-ALL Extension", "Renewable Subsidy Freeze", "Consumer Impact", "Green Energy Fund", "Extended Moratorium"]
+    },
+    {
+      "id": 32,
+      "file_path": "/uploads/1771911779525-697903072.pdf",
+      "title": "Resolution No. 09, Series of 2023, A Resolution Prescribing a Template for Compromise Agreement",
+      "keywords": ["Compromise Agreement Template", "Consumer Dispute Settlement", "Settlement Template", "ERC Complaint Resolution", "Mediation Format"]
+    },
+    {
+      "id": 33,
+      "file_path": "/uploads/1771911816777-628770638.pdf",
+      "title": "Resolution No. 07, Series of 2023, A Resolution Adopting a Leniency Program for Filing of CA Renewal",
+      "keywords": ["Meter Shop Leniency", "CA Renewal Grace Period", "Late Filing Waiver", "Metering License Renewal", "ERC Lenient Policy"]
+    },
+    {
+      "id": 34,
+      "file_path": "/uploads/1771911835521-950601325.pdf",
+      "title": "Resolution No. 08, Series of 2023, A Resolution Adopting the Procurement Guidelines for Regulated Assets",
+      "keywords": ["Procurement Guidelines", "Regulated Asset Acquisition", "NGCP Procurement", "DU Asset Purchase", "Competitive Bidding Rules"]
+    },
+    {
+      "id": 35,
+      "file_path": "/uploads/1771911860152-781856371.pdf",
+      "title": "Resolution No. 06, Series of 2023, A Resolution Adopting the GEAR Prices for Second Round of Auction",
+      "keywords": ["GEAR Round 2", "Second Auction Results", "Solar Bid Price", "Wind Bid Price", "Clean Energy Auction"]
+    },
+    {
+      "id": 36,
+      "file_path": "/uploads/1771911877179-759850142.pdf",
+      "title": "Resolution No. 11, Series of 2023, A Resolution Adopting the Extension of Suspension of FIT-ALL",
+      "keywords": ["FIT-ALL Third Extension", "2023 Rate Freeze", "Renewable Cost Waiver", "Consumer Tariff Stabilization", "Green Energy Subsidy Delay"]
+    },
+    {
+      "id": 37,
+      "file_path": "/uploads/1771911903083-255886590.pdf",
+      "title": "Resolution No. 14, Series of 2023, A Resolution Adopting the FIT Rate for Extension Period (3rd Round) of ROR Hydropower",
+      "keywords": ["ROR Hydro Third Round", "250MW Target", "Hydropower FIT", "Small Hydro Rates", "Run-of-River Extension"]
+    },
+    {
+      "id": 38,
+      "file_path": "/uploads/1771911921186-343407611.pdf",
+      "title": "Resolution No. 16, Series of 2023, Implementing Guidelines for Procurement of Power Supply Agreements",
+      "keywords": ["Power Supply Agreement", "PSA Procurement", "Captive Market Supply", "DU Supply Contract", "PSA Guidelines"]
+    },
+    {
+      "id": 39,
+      "file_path": "/uploads/1771911941264-114483600.pdf",
+      "title": "Resolution No. 17, Series of 2023, A Resolution Adopting the 2023 Revised Rules for Issuance of COC",
+      "keywords": ["COC Revised Rules", "Generation Facility Certification", "Power Plant License", "COC Application", "GenCo Compliance"]
+    },
+    {
+      "id": 40,
+      "file_path": "/uploads/1771911995131-232968025.pdf",
+      "title": "Resolution No. 01, Series of 2024, A Resolution Adopting the Lifting of Suspension of FIT-ALL",
+      "keywords": ["FIT-ALL Resumption", "Green Energy Collection", "2024 Renewable Levy", "FIT-ALL Reinstatement", "Consumer Rate Impact"]
+    },
+    {
+      "id": 41,
+      "file_path": "/uploads/1771912025881-791658631.pdf",
+      "title": "Resolution No. 12, Series of 2024, A Resolution Governing the Cost Recovery Mechanism for RPS Compliance",
+      "keywords": ["RPS Cost Recovery", "Renewable Portfolio Standards", "Green Energy Mandate", "RPS Compliance Cost", "DU Renewable Obligation"]
+    },
+    {
+      "id": 42,
+      "file_path": "/uploads/1771912047127-721548830.pdf",
+      "title": "Resolution No. 09, Series of 2024, A Resolution Reiterating Provisions on Administrative Offenses and Penalties",
+      "keywords": ["ERC Penalties", "Administrative Sanctions", "RA 11234 Violations", "Compliance Enforcement", "Regulatory Fines"]
+    },
+    {
+      "id": 43,
+      "file_path": "/uploads/1771912069916-280018474.pdf",
+      "title": "Resolution No. 15, Series of 2024, A Resolution Delegating Authority for Approval and Award of Contracts",
+      "keywords": ["Contract Approval Authority", "Procurement Delegation", "ERC Budget", "Contract Award Limits", "Delegation of Authority"]
+    },
+    {
+      "id": 44,
+      "file_path": "/uploads/1771912092217-872343555.pdf",
+      "title": "Resolution No. 18, Series of 2024, A Resolution Directing Distribution Utilities to Refund Regulatory Reset Experts Cost",
+      "keywords": ["Regulatory Reset Refund", "DU Refund Order", "Expert Cost Recovery", "Ratepayer Refund", "RRC Cost Adjustment"]
+    },
+    {
+      "id": 45,
+      "file_path": "/uploads/1771912106701-833763516.pdf",
+      "title": "Resolution No. 17, Series of 2024, A Resolution Adopting the Amendments to ERC Resolution No. 10, Series of 2021",
+      "keywords": ["PBR Amendment", "Rate Setting Revision", "Distribution Rate Review", "Performance Regulation Update", "DU Rate Framework"]
+    },
+    {
+      "id": 46,
+      "file_path": "/uploads/1771912143249-683193045.pdf",
+      "title": "Resolution No. 05, Series of 2025, A Resolution Adopting the ERC Alternative Dispute Resolution (ADR) Policy",
+      "keywords": ["ERC ADR Policy", "Dispute Resolution", "Settlement Mechanism", "Energy Dispute Mediation", "ERC Arbitration"]
+    },
+    {
+      "id": 47,
+      "file_path": "/uploads/1771912177906-956676669.pdf",
+      "title": "Resolution No. 01, Series of 2025, A Resolution Adopting the Approving/Signing Authorities for Consumer Complaints",
+      "keywords": ["Complaint Approval Authority", "Signing Authority", "Consumer Case Authority", "ERC Decision Levels", "Complaint Processing"]
+    },
+    {
+      "id": 48,
+      "file_path": "/uploads/1771912207454-550697546.pdf",
+      "title": "Resolution No. 10, Series of 2025, A Resolution Adopting the Interim Guidelines on Open Commission Meetings",
+      "keywords": ["Open Commission Meetings", "Public Hearing", "Transparency Guidelines", "Stakeholder Participation", "ERC Public Sessions"]
+    },
+    {
+      "id": 49,
+      "file_path": "/uploads/1771912235373-855276064.pdf",
+      "title": "RESOLUTION NO. 13 SERIES OF 2025, A RESOLUTION PROVIDING FOR THE EMREP",
+      "keywords": ["Mandatory Regulatory Education", "EMREP Program", "Consumer Education", "Energy Literacy", "RCO Certification"]
+    },
+    {
+      "id": 50,
+      "file_path": "/uploads/1771912267316-550145728.pdf",
+      "title": "RESOLUTION NO. 11, SERIES OF 2025, A RESOLUTION ADOPTING INSTITUTIONALIZATION OF FRONTLINE CUSTOMER SERVICES",
+      "keywords": ["Frontline Services", "Customer Interface", "DU Service Standards", "Customer Care", "Service Quality"]
+    },
+    {
+      "id": 51,
+      "file_path": "/uploads/1771912286632-811963749.pdf",
+      "title": "Resolution No. 16, Series of 2025, A Resolution Adopting Summary Proceedings for Various Applications",
+      "keywords": ["Summary Proceedings", "Fast-Track Application", "CPCN Expedited", "Transmission Line Permit", "Capital Project Approval"]
+    },
+    {
+      "id": 52,
+      "file_path": "/uploads/1771912306822-234366235.pdf",
+      "title": "RESOLUTION NO. 17, SERIES OF 2025, A RESOLUTION AMENDING SECTIONS OF RESOLUTION NO. 9, SERIES OF 2011",
+      "keywords": ["Public Offering Rules", "15% Share Sale", "GenCo Public Listing", "Private Company Equity", "RA 9136 Compliance"]
+    },
+    {
+      "id": 53,
+      "file_path": "/uploads/1771912332317-921923529.pdf",
+      "title": "Resolution No. 20, Series of 2025, A Resolution Adopting the Amended Rules for AMI Implementation",
+      "keywords": ["Advanced Metering Infrastructure", "Smart Meter", "AMI Implementation", "Automated Metering", "Meter Data Management"]
+    },
+    {
+      "id": 54,
+      "file_path": "/uploads/1771912346944-215906248.pdf",
+      "title": "Resolution No. 21, Series of 2025, A Resolution Delegating Authority for Contracts Exceeding 2 Million Pesos",
+      "keywords": ["High-Value Contracts", "Procurement Authority", "Multi-Million Contract", "ERC Budget Authority", "Contract Threshold"]
+    },
+    {
+      "id": 55,
+      "file_path": "/uploads/1771912363321-556830089.pdf",
+      "title": "Resolution No. 19, Series of 2025, A Resolution Adopting the Commission's Policy Direction on Supreme Court Decision",
+      "keywords": ["Supreme Court Ruling", "G.R. No. 226443", "ERC Policy Direction", "High Court Decision", "Legal Precedent"]
+    },
+    {
+      "id": 56,
+      "file_path": "/uploads/1771912531682-424002747.pdf",
+      "title": "Resolution No. 23, Series of 2025, A Resolution Directing Private Distribution Utilities to File AWAT Applications",
+      "keywords": ["AWAT Application", "Annual Wheeling Rate", "Lapsed Period Filing", "Rate Adjustment Filing", "PBR Application"]
+    },
+    {
+      "id": 57,
+      "file_path": "/uploads/1771912556150-738455578.pdf",
+      "title": "Resolution No. 24, Series of 2025, A Resolution Adopting the RRDWR for Privately-Owned DUs Under PBR",
+      "keywords": ["Rationalized DWRR", "New Rate Methodology", "PBR Reform", "DU Rate Setting", "Performance Framework"]
+    },
+    {
+      "id": 58,
+      "file_path": "/uploads/1771912571933-794521702.pdf",
+      "title": "Resolution No. 26, Series of 2025, A Resolution Amending Resolution No. 07, Series of 2021 on WESM",
+      "keywords": ["WESM Amendment", "Market Price Cap", "ERC Market Rule Change", "Spot Market Update", "Wholesale Trading"]
+    },
+    {
+      "id": 59,
+      "file_path": "/uploads/1771912596229-681888562.pdf",
+      "title": "Resolution No. 28, Series of 2025, A Resolution Approving the Adjustments to the FIT for 2021 to 2025",
+      "keywords": ["FIT Adjustment", "Tariff Rate Review", "Renewable Price Update", "FIT Price Revision", "Energy Cost Adjustment"]
+    },
+    {
+      "id": 60,
+      "file_path": "/uploads/1771912687289-384437803.pdf",
+      "title": "Resolution No. 04, Series of 2026, A Resolution Adopting Supplemental Guidelines on Transmission and Ancillary Services",
+      "keywords": ["Transmission Charge Guidelines", "Ancillary Services", "Supplemental Rules", "Grid Services", "System Operations"]
+    },
+    {
+      "id": 61,
+      "file_path": "/uploads/1771912703519-709356007.pdf",
+      "title": "Resolution No. 03, Series of 2026, A Resolution Adopting the Amendments to the Magna Carta for Residential Electricity Consumers",
+      "keywords": ["Magna Carta Amendment", "Residential Consumer Rights", "Consumer Protection Law", "Electricity Consumer Bill", "Residential Rate"]
+    },
+    {
+      "id": 62,
+      "file_path": "/uploads/1771912729839-925826815.pdf",
+      "title": "Resolution No. 02, Series of 2026, Resolution Setting Uniform National Lifeline Subsidy and Rate",
+      "keywords": ["National Lifeline Subsidy", "Uniform Lifeline Rate", "PSALM Administration", "Subsidized Tariff", "Indigent Rate"]
+    },
+    {
+      "id": 63,
+      "file_path": "/uploads/1771912754065-975424246.pdf",
+      "title": "Resolution No. 01, Series of 2026, A Resolution Amending Timelines Under Resolution No. 23 and 24, Series of 2025",
+      "keywords": ["Timeline Amendment", "AWAT Deadline Extension", "Rate Filing Deadline", "PBR Timeline", "Regulatory Deadline"]
+    }
+  ],
+  "metadata": {
+    "total": 63,
+    "description": "Enhanced keywords and tags for MEPC Resolution and Rules PDF files for improved search functionality",
+    "generated": "2025-02-24"
+  }
+}

@@ -67,12 +67,19 @@ function Home() {
     if (searchQuery.trim()) {
       console.log('Searching for:', searchQuery);
       
-      // Filter resolutions based on search query
+      // Filter resolutions based on search query (searches both title and tags)
       const filtered = allResolutions.filter(resolution => {
         const searchLower = searchQuery.toLowerCase();
-        return (
-          resolution.title.toLowerCase().includes(searchLower)
+        
+        // Check if title contains search query
+        const titleMatch = resolution.title.toLowerCase().includes(searchLower);
+        
+        // Check if any tag contains search query
+        const tagsMatch = resolution.tags && resolution.tags.some(tag => 
+          tag.toLowerCase().includes(searchLower)
         );
+        
+        return titleMatch || tagsMatch;
       });
       
       setFilteredResolutions(filtered);
@@ -182,28 +189,30 @@ function Home() {
             </div>
           </div>
           
-          {searchQuery === '' && filteredResolutions.length !== allResolutions.length && (
+          {(searchQuery === '' && filteredResolutions.length !== allResolutions.length) ? (
             <button className="show-all-button" onClick={handleShowAll}>
               Show All Resolutions
             </button>
-          )}
+          ) : null}
         </div>
 
         {/* Resolutions Table Section - Only visible after search */}
         <div className={`results-section ${hasSearched ? 'visible' : 'hidden'}`}>
           <div className="resolutions-table-container">
-            <h2 className="resolutions-title">Resolutions & Rules</h2>
+            <h2 className="resolutions-title">
+              Resolutions & Rules
+            </h2>
             {loading ? (
               <p className="no-results">Loading...</p>
             ) : filteredResolutions.length > 0 ? (
               <div className="table-wrapper">
                 <table className="resolutions-table">
-                <thead>
+                  <thead>
                     <tr>
                       <th>ID</th>
                       <th>Title</th>
-                      <th>Published Month</th>
-                      <th>Published Year</th>
+                      <th>Date Docketed</th>
+                      <th>Date Published</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
@@ -212,8 +221,8 @@ function Home() {
                       <tr key={resolution.id}>
                         <td>{resolution.id}</td>
                         <td className="title-cell">{resolution.title}</td>
-                        <td>{resolution.month}</td>
-                        <td>{resolution.year}</td>
+                        <td>{resolution.date_docketed || '-'}</td>
+                        <td>{resolution.date_published || '-'}</td>
                         <td>
                           <div className="action-buttons">
                             {resolution.file_path && (

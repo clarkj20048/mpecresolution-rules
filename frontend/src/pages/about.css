@@ -7,25 +7,43 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated Background */
+.about-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  
+  animation: aurora 15s ease infinite;
+  z-index: 0;
 }
 
 .about-content {
   max-width: 1200px;
   width: 100%;
   display: flex;
-  flex-direction: row; /* logo left, text right */
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   gap: 4rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* LEFT SIDE — LOGO */
 .about-logo {
   flex: 1;
   display: flex;
-  justify-content: center; /* moved slightly right from the far left */
+  justify-content: center;
   align-items: center;
-  padding-left: 2rem; /* fine-tune the right shift */
+  padding-left: 2rem;
+  animation: fadeInLeft 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .about-logo img {
@@ -33,14 +51,23 @@
   width: 100%;
   height: auto;
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
-  animation: fadeIn 1s ease-out;
+  animation: float 6s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.about-logo img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 15px 40px rgba(76, 175, 80, 0.3));
 }
 
 /* RIGHT SIDE — TEXT */
 .about-text {
   flex: 1;
   max-width: 600px;
-  padding-left: 2rem; /* moves description right */
+  padding-left: 2rem;
+  animation: fadeInRight 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
 }
 
 .about-title {
@@ -50,7 +77,9 @@
   margin-bottom: 1.5rem;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  animation: contactFadeIn 0.8s ease forwards;
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
 }
 
 .about-description {
@@ -58,7 +87,9 @@
   color: #e8f5e9;
   line-height: 1.8;
   margin-bottom: 2rem;
-  animation: contactFadeIn 0.8s ease forwards;
+  animation: fadeInUp 0.5s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
 }
 
 .about-cta {
@@ -70,16 +101,44 @@
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1rem;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
 }
 
 .about-cta:hover {
   background-color: #66bb6a;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 20px rgba(76, 175, 80, 0.4);
 }
 
+.about-cta:hover::before {
+  left: 100%;
+}
+
+/* Animation Keyframes */
+
+/* Fade In */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -88,6 +147,68 @@
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In Left */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade In Right */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Aurora Background Animation */
+@keyframes aurora {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(2%, 2%) rotate(1deg);
+  }
+  50% {
+    transform: translate(0, 4%) rotate(0deg);
+  }
+  75% {
+    transform: translate(-2%, 2%) rotate(-1deg);
+  }
+}
+
+/* Float Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
   }
 }
 
@@ -140,16 +261,5 @@
 
   .about-logo img {
     max-width: 130px;
-  }
-}
-/* ✨ FADE IN ANIMATION */
-@keyframes contactFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

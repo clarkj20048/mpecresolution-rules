@@ -322,7 +322,16 @@ app.post('/api/upload', upload.single('pdfFile'), (req, res) => {
 
 // Add new resolution
 app.post('/api/resolutions', (req, res) => {
-  const { title, month, year, file_path } = req.body;
+  let { title, month, year, file_path, date_docketed, date_published } = req.body;
+  
+  // Extract month and year from date_docketed if not provided separately
+  if (date_docketed && !month) {
+    const date = new Date(date_docketed);
+    if (!isNaN(date.getTime())) {
+      month = date.toLocaleString('default', { month: 'long' });
+      year = date.getFullYear().toString();
+    }
+  }
   
   if (!title || !month || !year) {
     return res.status(400).json({ error: 'Title, month, and year are required' });
@@ -340,6 +349,8 @@ app.post('/api/resolutions', (req, res) => {
     month,
     year: parseInt(year),
     file_path: file_path || '',
+    date_docketed: date_docketed || '',
+    date_published: date_published || '',
     created_at: new Date().toISOString()
   };
   
@@ -423,7 +434,16 @@ app.get('/api/pending-resolutions', (req, res) => {
 
 // Add new pending resolution
 app.post('/api/pending-resolutions', (req, res) => {
-  const { title, month, year, file_path } = req.body;
+  let { title, month, year, file_path, date_docketed, date_published } = req.body;
+  
+  // Extract month and year from date_docketed if not provided separately
+  if (date_docketed && !month) {
+    const date = new Date(date_docketed);
+    if (!isNaN(date.getTime())) {
+      month = date.toLocaleString('default', { month: 'long' });
+      year = date.getFullYear().toString();
+    }
+  }
   
   if (!title || !month || !year) {
     return res.status(400).json({ error: 'Title, month, and year are required' });
@@ -441,6 +461,8 @@ app.post('/api/pending-resolutions', (req, res) => {
     month,
     year: parseInt(year),
     file_path: file_path || '',
+    date_docketed: date_docketed || '',
+    date_published: date_published || '',
     created_at: new Date().toISOString()
   };
   
@@ -482,6 +504,8 @@ app.post('/api/pending-resolutions/:id/accept', (req, res) => {
     month: pendingResolution.month,
     year: pendingResolution.year,
     file_path: pendingResolution.file_path,
+    date_docketed: pendingResolution.date_docketed || '',
+    date_published: pendingResolution.date_published || '',
     created_at: new Date().toISOString()
   };
   
