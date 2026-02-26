@@ -20,7 +20,7 @@ function Home() {
   const fetchResolutions = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://mepc-resolution-ruleswebsite.onrender.com');
+      const response = await fetch('https://mpecresolution-ruleswebsite.onrender.com');
       
       // Check if response has content
       const text = await response.text();
@@ -227,7 +227,7 @@ function Home() {
                           <div className="action-buttons">
                             {resolution.file_path && (
                               <a 
-                                href={`http://mepc-resolution-ruleswebsite.onrender.com${resolution.file_path}`}
+                                href={`https://mpecresolution-ruleswebsite.onrender.com${resolution.file_path}`}
                                 className="view-link"
                                 target="_blank"
                                 rel="noopener noreferrer"
