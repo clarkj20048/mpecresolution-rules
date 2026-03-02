@@ -338,57 +338,57 @@ function Home() {
             )}
           </div>
 
-          {hasSearched && (
-            <div className="resolutions-table-container">
-              <h2 className="resolutions-title">
-                Resolutions & Rules
-              </h2>
-              {loading ? (
-                <p className="no-results">Loading...</p>
-              ) : filteredResolutions.length > 0 ? (
-                <div className="table-wrapper">
-                  <table className="resolutions-table">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Date Docketed</th>
-                        <th>Date Published</th>
-                        <th>Actions</th>
+          <div className="resolutions-table-container">
+            <h2 className="resolutions-title">
+              Resolutions & Rules
+            </h2>
+            {!hasSearched ? (
+              <p className="no-results">Search for a resolution to display results.</p>
+            ) : loading ? (
+              <p className="no-results">Loading...</p>
+            ) : filteredResolutions.length > 0 ? (
+              <div className="table-wrapper">
+                <table className="resolutions-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Title</th>
+                      <th>Date Docketed</th>
+                      <th>Date Published</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredResolutions.map((resolution) => (
+                      <tr key={resolution.id}>
+                        <td>{resolution.id}</td>
+                        <td className="title-cell">{resolution.title}</td>
+                        <td>{resolution.date_docketed || '-'}</td>
+                        <td>{resolution.date_published || '-'}</td>
+                        <td>
+                          <div className="action-buttons">
+                            {resolution.file_path && (
+                              <a
+                                href={`${API_BASE_URL}${resolution.file_path}`}
+                                className="view-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => trackRecentlyViewed(resolution)}
+                              >
+                                View
+                              </a>
+                            )}
+                          </div>
+                        </td>
                       </tr>
-                    </thead>
-                    <tbody>
-                      {filteredResolutions.map((resolution) => (
-                        <tr key={resolution.id}>
-                          <td>{resolution.id}</td>
-                          <td className="title-cell">{resolution.title}</td>
-                          <td>{resolution.date_docketed || '-'}</td>
-                          <td>{resolution.date_published || '-'}</td>
-                          <td>
-                            <div className="action-buttons">
-                              {resolution.file_path && (
-                                <a
-                                  href={`${API_BASE_URL}${resolution.file_path}`}
-                                  className="view-link"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  onClick={() => trackRecentlyViewed(resolution)}
-                                >
-                                  View
-                                </a>
-                              )}
-                            </div>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              ) : (
-                <p className="no-results">No resolutions found. Add some using the Add page.</p>
-              )}
-            </div>
-          )}
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <p className="no-results">No resolutions found. Add some using the Add page.</p>
+            )}
+          </div>
         </div>
       </div>
     </div>
