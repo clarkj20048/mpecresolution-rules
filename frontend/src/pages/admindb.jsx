@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import './admindb.css';
+import { API_BASE_URL, apiUrl } from '../config/api';
 
 function AdminDB() {
   useAuth(); // Ensures component is only accessible to authenticated users
@@ -19,7 +20,7 @@ function AdminDB() {
 
   const fetchContacts = async () => {
     try {
-      const response = await fetch('https://mpecresolution-ruleswebsite.onrender.com/api/contacts');
+      const response = await fetch(apiUrl('/api/contacts'));
       const data = await response.json();
       if (response.ok) {
         setContacts(data);
@@ -34,7 +35,7 @@ function AdminDB() {
 
   const fetchResolutions = async () => {
     try {
-      const response = await fetch('https://mpecresolution-ruleswebsite.onrender.com/api/resolutions');
+      const response = await fetch(apiUrl('/api/resolutions'));
       const data = await response.json();
       if (response.ok) {
         setResolutions(data);
@@ -50,7 +51,7 @@ function AdminDB() {
 
   const fetchPendingResolutions = async () => {
     try {
-      const response = await fetch('https://mpecresolution-ruleswebsite.onrender.com/api/pending-resolutions');
+      const response = await fetch(apiUrl('/api/pending-resolutions'));
       const data = await response.json();
       if (response.ok) {
         setPendingResolutions(data);
@@ -68,7 +69,7 @@ function AdminDB() {
     }
 
     try {
-      const response = await fetch(`https://mpecresolution-ruleswebsite.onrender.com/api/contacts/${id}`, {
+      const response = await fetch(apiUrl(`/api/contacts/${id}`), {
         method: 'DELETE',
       });
 
@@ -90,7 +91,7 @@ function AdminDB() {
     }
 
     try {
-      const response = await fetch(`https://mpecresolution-ruleswebsite.onrender.com/api/resolutions/${id}`, {
+      const response = await fetch(apiUrl(`/api/resolutions/${id}`), {
         method: 'DELETE',
       });
 
@@ -112,7 +113,7 @@ function AdminDB() {
     }
 
     try {
-      const response = await fetch(`https://mpecresolution-ruleswebsite.onrender.com/api/pending-resolutions/${id}/accept`, {
+      const response = await fetch(apiUrl(`/api/pending-resolutions/${id}/accept`), {
         method: 'POST',
       });
 
@@ -139,7 +140,7 @@ function AdminDB() {
     }
 
     try {
-      const response = await fetch(`https://mpecresolution-ruleswebsite.onrender.com/api/pending-resolutions/${id}/reject`, {
+      const response = await fetch(apiUrl(`/api/pending-resolutions/${id}/reject`), {
         method: 'POST',
       });
 
@@ -190,7 +191,7 @@ function AdminDB() {
                           <div className="action-buttons">
                             {resolution.file_path && (
                               <a 
-                                href={`https://mpecresolution-ruleswebsite.onrender.com${resolution.file_path}`}
+                                href={`${API_BASE_URL}${resolution.file_path}`}
                                 className="view-link"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -246,7 +247,7 @@ function AdminDB() {
                           <div className="action-buttons">
                             {resolution.file_path && (
                               <a 
-                                href={`https://mpecresolution-ruleswebsite.onrender.com${resolution.file_path}`}
+                                href={`${API_BASE_URL}${resolution.file_path}`}
                                 className="view-link"
                                 target="_blank"
                                 rel="noopener noreferrer"

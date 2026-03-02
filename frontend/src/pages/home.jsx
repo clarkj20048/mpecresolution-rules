@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './home.css';
+import { API_BASE_URL, apiUrl } from '../config/api';
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -20,26 +21,14 @@ function Home() {
   const fetchResolutions = async () => {
     setLoading(true);
     try {
-      const response = await fetch('https://mpecresolution-ruleswebsite.onrender.com');
-      
-      // Check if response has content
-      const text = await response.text();
-      
-      if (!text) {
-        console.error('Empty response from server');
-        return;
-      }
-      
-      try {
-        const data = JSON.parse(text);
-        if (response.ok) {
-          setAllResolutions(data);
-          setFilteredResolutions(data);
-        } else {
-          console.error('Failed to fetch resolutions:', data.error || 'Unknown error');
-        }
-      } catch (parseError) {
-        console.error('Failed to parse JSON:', parseError, 'Response text:', text);
+      const response = await fetch(apiUrl('/api/resolutions'));
+      const data = await response.json();
+
+      if (response.ok) {
+        setAllResolutions(Array.isArray(data) ? data : []);
+        setFilteredResolutions(Array.isArray(data) ? data : []);
+      } else {
+        console.error('Failed to fetch resolutions:', data.error || 'Unknown error');
       }
     } catch (error) {
       console.error('Error fetching resolutions:', error);
@@ -227,7 +216,7 @@ function Home() {
                           <div className="action-buttons">
                             {resolution.file_path && (
                               <a 
-                                href={`https://mpecresolution-ruleswebsite.onrender.com${resolution.file_path}`}
+                                href={`${API_BASE_URL}${resolution.file_path}`}
                                 className="view-link"
                                 target="_blank"
                                 rel="noopener noreferrer"

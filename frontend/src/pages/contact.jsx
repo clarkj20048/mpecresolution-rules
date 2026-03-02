@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './contact.css';
+import { apiUrl } from '../config/api';
 
 
 function Contact() {
@@ -25,7 +26,7 @@ function Contact() {
     setLoading(true);
 
     try {
-      const response = await fetch('https://mpecresolution-ruleswebsite.onrender.com.com/api/contacts', {
+      const response = await fetch(apiUrl('/api/contacts'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
