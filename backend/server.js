@@ -246,6 +246,7 @@ app.delete('/api/users/:id', (req, res) => {
 // =====================
 const resolutionsDbPath = path.join(__dirname, 'resolutions-db.json');
 const pendingResolutionsPath = path.join(__dirname, 'pending-resolutions.json');
+const recentlyViewedPath = path.join(__dirname, 'recently-viewed.json');
 
 function readResolutionsDb() {
   try {
@@ -284,6 +285,25 @@ function writePendingResolutions(data) {
   fs.writeFileSync(pendingResolutionsPath, JSON.stringify(data, null, 2));
 }
 
+function readRecentlyViewed() {
+  try {
+    const data = fs.readFileSync(recentlyViewedPath, 'utf8');
+    return JSON.parse(data);
+  } catch (err) {
+    return {
+      recentlyViewed: [],
+      metadata: {
+        total: 0,
+        updated_at: null
+      }
+    };
+  }
+}
+
+function writeRecentlyViewed(data) {
+  fs.writeFileSync(recentlyViewedPath, JSON.stringify(data, null, 2));
+}
+
 // =====================
 // Resolutions API Routes (using JSON file)
 // =====================
@@ -304,6 +324,46 @@ app.get('/api/resolutions/:id', (req, res) => {
     return res.status(404).json({ error: 'Resolution not found' });
   }
   res.json(resolution);
+});
+
+// Get recently viewed resolutions
+app.get('/api/recently-viewed', (req, res) => {
+  const data = readRecentlyViewed();
+  res.json(data.recentlyViewed);
+});
+
+// Add/update recently viewed resolution
+app.post('/api/recently-viewed', (req, res) => {
+  const { id, title, file_path, date_docketed, date_published } = req.body;
+
+  if (!id || !title) {
+    return res.status(400).json({ error: 'Resolution id and title are required' });
+  }
+
+  const data = readRecentlyViewed();
+  const normalizedId = parseInt(id, 10);
+
+  const entry = {
+    id: Number.isNaN(normalizedId) ? id : normalizedId,
+    title: String(title),
+    file_path: file_path || '',
+    date_docketed: date_docketed || '',
+    date_published: date_published || '',
+    viewed_at: new Date().toISOString()
+  };
+
+  const existing = data.recentlyViewed.filter((item) => item.id !== entry.id);
+  data.recentlyViewed = [entry, ...existing].slice(0, 10);
+  data.metadata.total = data.recentlyViewed.length;
+  data.metadata.updated_at = new Date().toISOString();
+
+  writeRecentlyViewed(data);
+
+  res.json({
+    success: true,
+    message: 'Recently viewed updated',
+    recentlyViewed: data.recentlyViewed
+  });
 });
 
 // File upload endpoint for PDF

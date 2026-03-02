@@ -2,20 +2,58 @@ import React, { useState, useRef, useEffect } from 'react';
 import './home.css';
 import { API_BASE_URL, apiUrl } from '../config/api';
 
+const RECENT_SEARCHES_KEY = 'mepc_recent_searches';
+const RECENTLY_VIEWED_KEY = 'mepc_recently_viewed';
+
 function Home() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [recentSearches, setRecentSearches] = useState([]);
+  const [recentSearches, setRecentSearches] = useState(() => {
+    try {
+      const saved = localStorage.getItem(RECENT_SEARCHES_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch (error) {
+      console.error('Error reading recent searches from storage:', error);
+      return [];
+    }
+  });
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [recentlyViewed, setRecentlyViewed] = useState(() => {
+    try {
+      const saved = localStorage.getItem(RECENTLY_VIEWED_KEY);
+      return saved ? JSON.parse(saved) : [];
+    } catch (error) {
+      console.error('Error reading recently viewed from storage:', error);
+      return [];
+    }
+  });
   const [filteredResolutions, setFilteredResolutions] = useState([]);
   const [allResolutions, setAllResolutions] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingRecentlyViewed, setLoadingRecentlyViewed] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
   const searchContainerRef = useRef(null);
 
-  // Fetch resolutions from database on component mount
+  // Fetch resolutions and recently viewed data on component mount
   useEffect(() => {
     fetchResolutions();
+    fetchRecentlyViewed();
   }, []);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(RECENT_SEARCHES_KEY, JSON.stringify(recentSearches));
+    } catch (error) {
+      console.error('Error saving recent searches to storage:', error);
+    }
+  }, [recentSearches]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(RECENTLY_VIEWED_KEY, JSON.stringify(recentlyViewed));
+    } catch (error) {
+      console.error('Error saving recently viewed to storage:', error);
+    }
+  }, [recentlyViewed]);
 
   // Fetch resolutions from API
   const fetchResolutions = async () => {
@@ -34,6 +72,49 @@ function Home() {
       console.error('Error fetching resolutions:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchRecentlyViewed = async () => {
+    setLoadingRecentlyViewed(true);
+    try {
+      const response = await fetch(apiUrl('/api/recently-viewed'));
+      const data = await response.json();
+
+      if (response.ok) {
+        setRecentlyViewed(Array.isArray(data) ? data : []);
+      } else {
+        console.error('Failed to fetch recently viewed:', data.error || 'Unknown error');
+      }
+    } catch (error) {
+      console.error('Error fetching recently viewed:', error);
+    } finally {
+      setLoadingRecentlyViewed(false);
+    }
+  };
+
+  const trackRecentlyViewed = async (resolution) => {
+    try {
+      const response = await fetch(apiUrl('/api/recently-viewed'), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: resolution.id,
+          title: resolution.title,
+          file_path: resolution.file_path,
+          date_docketed: resolution.date_docketed,
+          date_published: resolution.date_published
+        }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        setRecentlyViewed(Array.isArray(data.recentlyViewed) ? data.recentlyViewed : []);
+      }
+    } catch (error) {
+      console.error('Error tracking recently viewed:', error);
     }
   };
 
@@ -185,57 +266,113 @@ function Home() {
           ) : null}
         </div>
 
-        {/* Resolutions Table Section - Only visible after search */}
-        <div className={`results-section ${hasSearched ? 'visible' : 'hidden'}`}>
-          <div className="resolutions-table-container">
-            <h2 className="resolutions-title">
-              Resolutions & Rules
-            </h2>
-            {loading ? (
-              <p className="no-results">Loading...</p>
-            ) : filteredResolutions.length > 0 ? (
-              <div className="table-wrapper">
-                <table className="resolutions-table">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Title</th>
-                      <th>Date Docketed</th>
-                      <th>Date Published</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filteredResolutions.map((resolution) => (
-                      <tr key={resolution.id}>
-                        <td>{resolution.id}</td>
-                        <td className="title-cell">{resolution.title}</td>
-                        <td>{resolution.date_docketed || '-'}</td>
-                        <td>{resolution.date_published || '-'}</td>
-                        <td>
-                          <div className="action-buttons">
-                            {resolution.file_path && (
-                              <a 
-                                href={`${API_BASE_URL}${resolution.file_path}`}
-                                className="view-link"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                View
-                              </a>
-                            )}
-                          </div>
-                        </td>
+        {!hasSearched && (
+          <div className="results-section visible">
+            <div className="recently-viewed-container">
+              <h2 className="recently-viewed-title">Recently Viewed PDFs</h2>
+              {loadingRecentlyViewed && recentlyViewed.length === 0 ? (
+                <p className="no-results">Loading...</p>
+              ) : recentlyViewed.length > 0 ? (
+                <div className="table-wrapper">
+                  <table className="recently-viewed-table">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Date Docketed</th>
+                        <th>Date Published</th>
+                        <th>Last Viewed</th>
+                        <th>Actions</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : (
-              <p className="no-results">No resolutions found. Add some using the Add page.</p>
-            )}
+                    </thead>
+                    <tbody>
+                      {recentlyViewed.map((resolution) => (
+                        <tr key={resolution.id}>
+                          <td>{resolution.id}</td>
+                          <td className="title-cell">{resolution.title}</td>
+                          <td>{resolution.date_docketed || '-'}</td>
+                          <td>{resolution.date_published || '-'}</td>
+                          <td>{resolution.viewed_at ? new Date(resolution.viewed_at).toLocaleString() : '-'}</td>
+                          <td>
+                            <div className="action-buttons">
+                              {resolution.file_path && (
+                                <a
+                                  href={`${API_BASE_URL}${resolution.file_path}`}
+                                  className="view-link"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={() => trackRecentlyViewed(resolution)}
+                                >
+                                  View
+                                </a>
+                              )}
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <p className="no-results">No recently viewed PDFs yet.</p>
+              )}
+            </div>
           </div>
-        </div>
+        )}
+
+        {hasSearched && (
+          <div className="results-section visible">
+            <div className="resolutions-table-container">
+              <h2 className="resolutions-title">
+                Resolutions & Rules
+              </h2>
+              {loading ? (
+                <p className="no-results">Loading...</p>
+              ) : filteredResolutions.length > 0 ? (
+                <div className="table-wrapper">
+                  <table className="resolutions-table">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Date Docketed</th>
+                        <th>Date Published</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {filteredResolutions.map((resolution) => (
+                        <tr key={resolution.id}>
+                          <td>{resolution.id}</td>
+                          <td className="title-cell">{resolution.title}</td>
+                          <td>{resolution.date_docketed || '-'}</td>
+                          <td>{resolution.date_published || '-'}</td>
+                          <td>
+                            <div className="action-buttons">
+                              {resolution.file_path && (
+                                <a
+                                  href={`${API_BASE_URL}${resolution.file_path}`}
+                                  className="view-link"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={() => trackRecentlyViewed(resolution)}
+                                >
+                                  View
+                                </a>
+                              )}
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <p className="no-results">No resolutions found. Add some using the Add page.</p>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

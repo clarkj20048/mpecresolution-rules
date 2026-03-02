@@ -286,12 +286,40 @@
   transition: all 0.3s ease;
 }
 
+.recently-viewed-container {
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 4rem;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.16);
+  animation: fadeInUp forwards;
+  animation-delay: 0.3s;
+  transition: all 0.3s ease;
+}
+
 .resolutions-table-container:hover {
   box-shadow: 0 7px 22px rgba(0, 0, 0, 0.2);
   transform: translateY(-1px);
 }
 
+.recently-viewed-container:hover {
+  box-shadow: 0 7px 22px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
 .resolutions-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin-bottom: 1rem;
+  text-align: center;
+  animation: fadeIn 0.5s ease-out forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+.recently-viewed-title {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--dark-green);
@@ -311,7 +339,16 @@
   border-collapse: collapse;
 }
 
+.recently-viewed-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
 .resolutions-table thead {
+  background-color: var(--dark-green);
+}
+
+.recently-viewed-table thead {
   background-color: var(--dark-green);
 }
 
@@ -325,7 +362,24 @@
   letter-spacing: 0.5px;
 }
 
+.recently-viewed-table th {
+  padding: 0.7rem 0.8rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--white);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .resolutions-table tbody tr {
+  border-bottom: 1px solid var(--light-gray);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.recently-viewed-table tbody tr {
   border-bottom: 1px solid var(--light-gray);
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   opacity: 0;
@@ -350,7 +404,19 @@
   box-shadow: none;
 }
 
+.recently-viewed-table tbody tr:hover {
+  background-color: var(--off-white);
+  transform: none;
+  box-shadow: none;
+}
+
 .resolutions-table td {
+  padding: 0.7rem 0.8rem;
+  color: var(--dark-text);
+  font-size: 0.85rem;
+}
+
+.recently-viewed-table td {
   padding: 0.7rem 0.8rem;
   color: var(--dark-text);
   font-size: 0.85rem;
@@ -362,6 +428,10 @@
 }
 
 .resolutions-table tbody tr:hover .title-cell {
+  color: var(--dark-green);
+}
+
+.recently-viewed-table tbody tr:hover .title-cell {
   color: var(--dark-green);
 }
 
@@ -475,6 +545,10 @@
     padding: 0.9rem;
   }
 
+  .home-content {
+    animation: fadeInUpPhone 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
   .search-section {
     width: 100%;
   }
@@ -500,13 +574,27 @@
     padding: 1rem;
   }
 
+  .recently-viewed-container {
+    padding: 1rem;
+  }
+
   .resolutions-table th,
   .resolutions-table td {
     padding: 0.6rem 0.5rem;
     font-size: 0.8rem;
   }
 
+  .recently-viewed-table th,
+  .recently-viewed-table td {
+    padding: 0.6rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
   .resolutions-title {
+    font-size: 1.1rem;
+  }
+
+  .recently-viewed-title {
     font-size: 1.1rem;
   }
 }
@@ -519,6 +607,23 @@
   .resolutions-table th:nth-child(1),
   .resolutions-table td:nth-child(1) {
     display: none;
+  }
+
+  .recently-viewed-table th:nth-child(1),
+  .recently-viewed-table td:nth-child(1) {
+    display: none;
+  }
+}
+
+/* Fade In Up (Phone) */
+@keyframes fadeInUpPhone {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

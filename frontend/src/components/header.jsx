@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import './header.css';
 
 function Header() {
@@ -9,11 +8,11 @@ function Header() {
           <img src="/mepclogo.png" alt="MEPC Logo" className="header-logo" />
         </h1>
         <ul className="nav-links">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-          <li><Link to="/add">Add</Link></li>
-          <li><Link to="/login">Admin Login</Link></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/add">Add</a></li>
+          <li><a href="/login">Admin Login</a></li>
         </ul>
       </nav>
     </header>

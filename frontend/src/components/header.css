@@ -203,3 +203,15 @@
     background-position: -200% 0;
   }
 }
+/* Fade In Up (Phone) */
+@keyframes fadeInUpPhone {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
