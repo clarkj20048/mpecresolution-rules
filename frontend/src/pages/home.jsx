@@ -198,6 +198,25 @@ function Home() {
     setRecentSearches([]);
   };
 
+  const clearRecentlyViewed = async () => {
+    setRecentlyViewed([]);
+
+    try {
+      const response = await fetch(apiUrl('/api/recently-viewed'), {
+        method: 'DELETE',
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        console.error('Failed to clear recently viewed:', data.error || 'Unknown error');
+        fetchRecentlyViewed();
+      }
+    } catch (error) {
+      console.error('Error clearing recently viewed:', error);
+      fetchRecentlyViewed();
+    }
+  };
+
   const handleSearchFocus = () => {
     setIsSearchFocused(true);
   };
@@ -290,7 +309,17 @@ function Home() {
         <div className="results-section visible">
           {!hasSearched ? (
             <div className="recently-viewed-container">
-              <h2 className="recently-viewed-title">Recently Viewed PDFs</h2>
+              <div className="recently-viewed-header">
+                <h2 className="recently-viewed-title">Recently Viewed PDFs</h2>
+                {recentlyViewed.length > 0 && (
+                  <button
+                    className="clear-recently-viewed-btn"
+                    onClick={clearRecentlyViewed}
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
               {loadingRecentlyViewed && recentlyViewed.length === 0 ? (
                 <p className="no-results">Loading...</p>
               ) : recentlyViewed.length > 0 ? (

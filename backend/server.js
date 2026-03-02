@@ -366,6 +366,25 @@ app.post('/api/recently-viewed', (req, res) => {
   });
 });
 
+// Clear recently viewed resolutions
+app.delete('/api/recently-viewed', (req, res) => {
+  const cleared = {
+    recentlyViewed: [],
+    metadata: {
+      total: 0,
+      updated_at: new Date().toISOString()
+    }
+  };
+
+  writeRecentlyViewed(cleared);
+
+  res.json({
+    success: true,
+    message: 'Recently viewed cleared',
+    recentlyViewed: []
+  });
+});
+
 // File upload endpoint for PDF
 app.post('/api/upload', upload.single('pdfFile'), (req, res) => {
   if (!req.file) {

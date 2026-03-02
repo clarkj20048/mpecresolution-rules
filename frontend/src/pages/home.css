@@ -330,6 +330,34 @@
   opacity: 0;
 }
 
+.recently-viewed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.recently-viewed-header .recently-viewed-title {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.clear-recently-viewed-btn {
+  background: none;
+  border: none;
+  color: var(--light-green);
+  font-size: 0.78rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.clear-recently-viewed-btn:hover {
+  color: var(--dark-green);
+  text-decoration: underline;
+  transform: none;
+}
+
 .table-wrapper {
   overflow-x: auto;
 }
