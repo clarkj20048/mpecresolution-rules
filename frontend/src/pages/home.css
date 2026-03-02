@@ -296,6 +296,7 @@
   animation: fadeInUp forwards;
   animation-delay: 0.3s;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .resolutions-table-container:hover {
@@ -331,35 +332,48 @@
 }
 
 .recently-viewed-header {
-  display: center;
-  justify-content: space-between;
+  position: relative;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 0.75rem;
+  min-height: 2rem;
+  margin-bottom: 1rem;
 }
 
 .recently-viewed-header .recently-viewed-title {
   margin-bottom: 0;
-  text-align:center;
+  text-align: center;
 }
 
 .clear-recently-viewed-btn {
-  background: none;
-  border: none;
-  color: var(--light-green);
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--dark-green);
+  border: 1px solid var(--dark-green);
+  color: var(--white);
   font-size: 0.78rem;
+  font-weight: 600;
   cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  transition: all 0.2s ease;
+  padding: 0.32rem 0.65rem;
+  border-radius: 6px;
+  transition: all 0.25s ease;
 }
 
 .clear-recently-viewed-btn:hover {
-  color: var(--dark-green);
-  text-decoration: underline;
-  transform: none;
+  background-color: var(--medium-green);
+  border-color: var(--medium-green);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(26, 71, 42, 0.25);
 }
 
 .table-wrapper {
   overflow-x: auto;
+}
+
+.recently-viewed-scroll {
+  max-height: 340px;
+  overflow-y: auto;
 }
 
 .resolutions-table {

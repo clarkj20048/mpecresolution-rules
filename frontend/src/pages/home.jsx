@@ -234,6 +234,8 @@ function Home() {
     setHasSearched(true);
   };
 
+  const showRecentlyViewed = !hasSearched && searchQuery.trim() === '';
+
   return (
     <div className="home-container">
       <div className="home-background-logo">
@@ -307,7 +309,7 @@ function Home() {
         </div>
 
         <div className="results-section visible">
-          {!hasSearched ? (
+          {showRecentlyViewed ? (
             <div className="recently-viewed-container">
               <div className="recently-viewed-header">
                 <h2 className="recently-viewed-title">Recently Viewed PDFs</h2>
@@ -323,7 +325,7 @@ function Home() {
               {loadingRecentlyViewed && recentlyViewed.length === 0 ? (
                 <p className="no-results">Loading...</p>
               ) : recentlyViewed.length > 0 ? (
-                <div className="table-wrapper">
+                <div className="table-wrapper recently-viewed-scroll">
                   <table className="recently-viewed-table">
                     <thead>
                       <tr>
