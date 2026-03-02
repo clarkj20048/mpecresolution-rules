@@ -93,7 +93,26 @@ function Home() {
     }
   };
 
+  const upsertRecentlyViewedLocally = (resolution) => {
+    const entry = {
+      id: resolution.id,
+      title: resolution.title,
+      file_path: resolution.file_path || '',
+      date_docketed: resolution.date_docketed || '',
+      date_published: resolution.date_published || '',
+      viewed_at: new Date().toISOString()
+    };
+
+    setRecentlyViewed((prev) => {
+      const existing = prev.filter((item) => item.id !== entry.id);
+      return [entry, ...existing].slice(0, 10);
+    });
+  };
+
   const trackRecentlyViewed = async (resolution) => {
+    // Optimistic UI update so the container reflects activity immediately.
+    upsertRecentlyViewedLocally(resolution);
+
     try {
       const response = await fetch(apiUrl('/api/recently-viewed'), {
         method: 'POST',
@@ -112,6 +131,8 @@ function Home() {
       const data = await response.json();
       if (response.ok) {
         setRecentlyViewed(Array.isArray(data.recentlyViewed) ? data.recentlyViewed : []);
+      } else {
+        console.error('Failed to track recently viewed:', data.error || 'Unknown error');
       }
     } catch (error) {
       console.error('Error tracking recently viewed:', error);
@@ -266,62 +287,58 @@ function Home() {
           ) : null}
         </div>
 
-        {!hasSearched && (
-          <div className="results-section visible">
-            <div className="recently-viewed-container">
-              <h2 className="recently-viewed-title">Recently Viewed PDFs</h2>
-              {loadingRecentlyViewed && recentlyViewed.length === 0 ? (
-                <p className="no-results">Loading...</p>
-              ) : recentlyViewed.length > 0 ? (
-                <div className="table-wrapper">
-                  <table className="recently-viewed-table">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Date Docketed</th>
-                        <th>Date Published</th>
-                        <th>Last Viewed</th>
-                        <th>Actions</th>
+        <div className="results-section visible">
+          <div className="recently-viewed-container">
+            <h2 className="recently-viewed-title">Recently Viewed PDFs</h2>
+            {loadingRecentlyViewed && recentlyViewed.length === 0 ? (
+              <p className="no-results">Loading...</p>
+            ) : recentlyViewed.length > 0 ? (
+              <div className="table-wrapper">
+                <table className="recently-viewed-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Title</th>
+                      <th>Date Docketed</th>
+                      <th>Date Published</th>
+                      <th>Last Viewed</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {recentlyViewed.map((resolution) => (
+                      <tr key={resolution.id}>
+                        <td>{resolution.id}</td>
+                        <td className="title-cell">{resolution.title}</td>
+                        <td>{resolution.date_docketed || '-'}</td>
+                        <td>{resolution.date_published || '-'}</td>
+                        <td>{resolution.viewed_at ? new Date(resolution.viewed_at).toLocaleString() : '-'}</td>
+                        <td>
+                          <div className="action-buttons">
+                            {resolution.file_path && (
+                              <a
+                                href={`${API_BASE_URL}${resolution.file_path}`}
+                                className="view-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => trackRecentlyViewed(resolution)}
+                              >
+                                View
+                              </a>
+                            )}
+                          </div>
+                        </td>
                       </tr>
-                    </thead>
-                    <tbody>
-                      {recentlyViewed.map((resolution) => (
-                        <tr key={resolution.id}>
-                          <td>{resolution.id}</td>
-                          <td className="title-cell">{resolution.title}</td>
-                          <td>{resolution.date_docketed || '-'}</td>
-                          <td>{resolution.date_published || '-'}</td>
-                          <td>{resolution.viewed_at ? new Date(resolution.viewed_at).toLocaleString() : '-'}</td>
-                          <td>
-                            <div className="action-buttons">
-                              {resolution.file_path && (
-                                <a
-                                  href={`${API_BASE_URL}${resolution.file_path}`}
-                                  className="view-link"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  onClick={() => trackRecentlyViewed(resolution)}
-                                >
-                                  View
-                                </a>
-                              )}
-                            </div>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              ) : (
-                <p className="no-results">No recently viewed PDFs yet.</p>
-              )}
-            </div>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : (
+              <p className="no-results">No recently viewed PDFs yet.</p>
+            )}
           </div>
-        )}
 
-        {hasSearched && (
-          <div className="results-section visible">
+          {hasSearched && (
             <div className="resolutions-table-container">
               <h2 className="resolutions-title">
                 Resolutions & Rules
@@ -371,8 +388,8 @@ function Home() {
                 <p className="no-results">No resolutions found. Add some using the Add page.</p>
               )}
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
