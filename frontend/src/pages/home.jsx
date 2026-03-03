@@ -234,7 +234,7 @@ function Home() {
     setHasSearched(true);
   };
 
-  const showRecentlyViewed = !hasSearched && searchQuery.trim() === '';
+  const showRecentlyViewed = !hasSearched;
 
   return (
     <div className="home-container">
